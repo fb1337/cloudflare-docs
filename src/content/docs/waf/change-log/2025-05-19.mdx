@@ -9,22 +9,21 @@ tableOfContents: false
 
 import { RuleID } from "~/components";
 
-This week's analysis covers 4 vulnerabilities, with three rated critical due to Remote Code Execution (RCE) potential. One targets a high-traffic frontend platform, while another targets a popular content management system. These detections are now part of our Managed Ruleset in Block mode.
+This week's analysis covers four vulnerabilities, with three rated critical due to their Remote Code Execution (RCE) potential. One targets a high-traffic frontend platform, while another targets a popular content management system. These detections are now part of the Cloudflare Managed Ruleset in _Block_ mode.
 
 **Key Findings**
 
 - Commvault Command Center (CVE-2025-34028) exposes an unauthenticated RCE via insecure command injection paths in the web UI. This is critical due to its use in enterprise backup environments.
 - BentoML (CVE-2025-27520) reveals an exploitable vector where serialized payloads in model deployment APIs can lead to arbitrary command execution. This targets modern AI/ML infrastructure.
 - Craft CMS (CVE-2024-56145) allows RCE through template injection in unauthenticated endpoints. It poses a significant risk for content-heavy websites with plugin extensions.
-- Apache HTTP Server (CVE-2024-38475) discloses sensitive server config data due to misconfigured mod_proxy behavior. While not RCE, it’s useful for pre-attack recon.
+- Apache HTTP Server (CVE-2024-38475) discloses sensitive server config data due to misconfigured 
+`mod_proxy` behavior. While not RCE, this is useful for pre-attack recon.
 
 **Impact**
 
-These newly detected vulnerabilities introduce critical risk across modern web stacks, AI infrastructure, and content platforms:
-Unauthenticated RCEs in Commvault, BentoML, and Craft CMS enable full system compromise with minimal attacker effort.
+These newly detected vulnerabilities introduce critical risk across modern web stacks, AI infrastructure, and content platforms: unauthenticated RCEs in Commvault, BentoML, and Craft CMS enable full system compromise with minimal attacker effort.
 
-Apache HTTPD information leak can support targeted reconnaissance, increasing the success rate of follow-up exploits.
-Organizations using these platforms should prioritize patching and monitor for indicators of exploitation using updated WAF detection rules.
+Apache HTTPD information leak can support targeted reconnaissance, increasing the success rate of follow-up exploits. Organizations using these platforms should prioritize patching and monitor for indicators of exploitation using updated WAF detection rules.
 
 <table style="width: 100%">
 	<thead>
