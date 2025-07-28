@@ -6,16 +6,16 @@ date: 2025-07-28
 
 import { RuleID } from "~/components";
 
-This week’s update spotlights several vulnerabilities across Apache Tomcat, MongoDB,Fortinet FortiWeb . Several flaws related with a memory leak in Apache Tomcat can lead to a denial-of-service attack. Additionally, a code injection flaw in MongoDB's Mongoose library allows attackers to bypass security controls to access restricted data.
+This week’s update spotlights several vulnerabilities across Apache Tomcat, MongoDB, and Fortinet FortiWeb. Several flaws related with a memory leak in Apache Tomcat can lead to a denial-of-service attack. Additionally, a code injection flaw in MongoDB's Mongoose library allows attackers to bypass security controls to access restricted data.
 
 
 **Key Findings**
 
-- Fortinet FortiWeb (CVE-2025-25257): An improper neutralization of special elements used in an SQL command vulnerability in Fortinet FortiWeb versions allows an unauthenticated attacker to execute unauthorized SQL code or commands.
+- Fortinet FortiWeb (CVE-2025-25257): An improper neutralization of special elements used in a SQL command vulnerability in Fortinet FortiWeb versions allows an unauthenticated attacker to execute unauthorized SQL code or commands.
 
 - Apache Tomcat (CVE-2025-31650): A improper Input Validation vulnerability in Apache Tomcat that could create memory leak when incorrect error handling for some invalid HTTP priority headers resulted in incomplete clean-up of the failed request.
 
-- MongoDB (CVE-2024-53900, CVE:CVE-2025-23061): Improperly use $where in match and a nested $where filter with a populate() match in Mongoose that leads to search injection.
+- MongoDB (CVE-2024-53900, CVE:CVE-2025-23061): Improper use of `$where` in match and a nested `$where` filter with a `populate()` match in Mongoose can lead to search injection.
 
 **Impact**
 
