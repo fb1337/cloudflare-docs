@@ -6,30 +6,27 @@ date: 2025-09-08
 
 import { RuleID } from "~/components";
 
-This week's update 
+**This week's update** 
 
 This week’s focus highlights newly disclosed vulnerabilities in web frameworks, enterprise applications, and widely deployed CMS plugins. The vulnerabilities include SSRF, authentication bypass, arbitrary file upload, and remote code execution (RCE), exposing organizations to high-impact risks such as unauthorized access, system compromise, and potential data exposure. In addition, security rule enhancements have been deployed to cover general command injection and server-side injection attacks, further strengthening protections.
 
-
 **Key Findings**
 
-* Next.js (CVE-2025-57822): Improper handling of redirects in custom middleware can lead to server-side request forgery (SSRF) when user-supplied headers are forwarded. Attackers could exploit this to access internal services or cloud metadata endpoints. The issue has been resolved in versions 14.2.32 and 15.4.7. Developers using custom middleware should upgrade and verify proper redirect handling in next() calls.
+* Next.js (CVE-2025-57822): Improper handling of redirects in custom middleware can lead to server-side request forgery (SSRF) when user-supplied headers are forwarded. Attackers could exploit this to access internal services or cloud metadata endpoints. The issue has been resolved in versions 14.2.32 and 15.4.7. Developers using custom middleware should upgrade and verify proper redirect handling in `next()` calls.
 
-* ScriptCase (CVE-2025-47227,CVE-2025-47228):In the Production Environment extension in Netmake ScriptCase through 9.12.006 (23), two vulnerabilities allow attackers to reset admin accounts and execute system commands, potentially leading to full compromise of affected deployments.
+* ScriptCase (CVE-2025-47227, CVE-2025-47228): In the Production Environment extension in Netmake ScriptCase through 9.12.006 (23), two vulnerabilities allow attackers to reset admin accounts and execute system commands, potentially leading to full compromise of affected deployments.
 
-* Sar2HTML (CVE-2025-34030): In Sar2HTML version 3.2.2 and prior, insufficient input sanitization of the plot parameter allows remote, unauthenticated attackers to execute arbitrary system commands. Exploitation could compromise the underlying server and its data.
+* Sar2HTML (CVE-2025-34030): In Sar2HTML version 3.2.2 and earlier, insufficient input sanitization of the plot parameter allows remote, unauthenticated attackers to execute arbitrary system commands. Exploitation could compromise the underlying server and its data.
 
-* Zhiyuan OA (CVE-2025-34040): An arbitrary file upload vulnerability exists in the Zhiyuan OA platform. Improper validation in the wpsAssistServlet interface allows unauthenticated attackers to upload crafted files via path traversal, which can be executed on the web server, leading to remote code execution.
+* Zhiyuan OA (CVE-2025-34040): An arbitrary file upload vulnerability exists in the Zhiyuan OA platform. Improper validation in the `wpsAssistServlet` interface allows unauthenticated attackers to upload crafted files via path traversal, which can be executed on the web server, leading to remote code execution.
 
 * WordPress:Plugin:InfiniteWP Client (CVE-2020-8772): A vulnerability in the InfiniteWP Client plugin allows attackers to perform restricted actions and gain administrative control of connected WordPress sites.
 
-
 **Impact**
 
-These vulnerabilities could allow attackers to gain unauthorized access, execute malicious code, or take full control of affected systems. The Next.js, SSRF flaw may expose internal services or cloud metadata endpoints to attackers. Exploitations of ScriptCase & Sar2HTML could result in remote code execution, administrative takeover, and full server compromise. In Zhiyuan OA, the arbitrary file upload vulnerability allows attackers to execute malicious code on the web server, potentially exposing sensitive data and applications. The authentication bypass in WordPress InfiniteWP Client enables attackers to gain administrative access, risking data exposure and unauthorized control of connected sites.
+These vulnerabilities could allow attackers to gain unauthorized access, execute malicious code, or take full control of affected systems. The Next.js SSRF flaw may expose internal services or cloud metadata endpoints to attackers. Exploitations of ScriptCase and Sar2HTML could result in remote code execution, administrative takeover, and full server compromise. In Zhiyuan OA, the arbitrary file upload vulnerability allows attackers to execute malicious code on the web server, potentially exposing sensitive data and applications. The authentication bypass in WordPress InfiniteWP Client enables attackers to gain administrative access, risking data exposure and unauthorized control of connected sites.
 
 Administrators are strongly advised to apply vendor patches immediately, remove unsupported software, and review authentication and access controls to mitigate these risks.
-
 
 <table style="width: 100%">
   <thead>
@@ -52,7 +49,7 @@ Administrators are strongly advised to apply vendor patches immediately, remove 
       <td>100007D</td>
       <td>Command Injection - Common Attack Commands Args</td>
       <td>Log</td>
-      <td>Blocked</td>
+      <td>Block</td>
       <td>This rule has been merged into the original rule "Command Injection - Common Attack Commands" (ID: <RuleID id="89557ce9b26e4d4dbf29e90c28345b9b" />) for New WAF customers only.</td>
     </tr>
     <tr>
@@ -63,7 +60,7 @@ Administrators are strongly advised to apply vendor patches immediately, remove 
       <td>100617</td>
       <td>Next.js - SSRF - CVE:CVE-2025-57822</td>
       <td>Log</td>
-      <td>Blocked</td>
+      <td>Block</td>
       <td>This is a New Detection</td>
     </tr>
     <tr>
@@ -74,7 +71,7 @@ Administrators are strongly advised to apply vendor patches immediately, remove 
       <td>100659_BETA</td>
       <td>Common Payloads for Server-Side Template Injection - Beta</td>
       <td>Log</td>
-      <td>Blocked</td>
+      <td>Block</td>
       <td>This rule is merged into the original rule "Common Payloads for Server-Side Template Injection" (ID: <RuleID id="21c7a963e1b749e7b1753238a28a42c4" />)</td>
     </tr>    
     <tr>
