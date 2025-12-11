@@ -1,0 +1,72 @@
+---
+title: "WAF Release - 2025-12-11 - Emergency"
+description: Cloudflare WAF managed rulesets 2025-12-11 emergency release
+date: 2025-12-11
+---
+
+import { RuleID } from "~/components";
+
+The previously deployed rules targeting server-function exposure and resource-exhaustion patterns have been updated for accuracy and CVE alignment. Their descriptions now read:
+
+- “React – Leaking Server Functions – CVE:CVE-2025-55183”
+- “React – DoS – CVE:CVE-2025-55184”
+
+These changes formally map the existing detections to the newly disclosed React Server Components vulnerabilities. No modifications were made to the underlying detection logic or signal quality.
+
+**Key Findings**
+
+React server-function exposure and resource-exhaustion rules have been updated to reflect CVE-2025-55183 and CVE-2025-55184. 
+The ruleset now explicitly references CVE-2025-55183 and CVE-2025-55184
+
+**Impact**
+
+These updates enhance protection against exploitation attempts targeting React Server Components by reinforcing detection around server-function leakage and resource-exhaustion techniques. They also improve visibility into misuse patterns that may expose internal logic or degrade service availability. As these vulnerabilities are newly disclosed, the updated rule descriptions ensure the protections are now clearly aligned with the latest CVE information and current threat landscape.
+
+<table style="width: 100%">
+	<thead>
+		<tr>
+			<th>Ruleset</th>
+			<th>Rule ID</th>
+			<th>Legacy Rule ID</th>
+			<th>Description</th>
+			<th>Previous Action</th>
+			<th>New Action</th>
+			<th>Comments</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Cloudflare Managed Ruleset</td>
+			<td>
+				<RuleID id="17c5123f1ac049818765ebf2fefb4e9b" />
+			</td>
+			<td>N/A</td>
+			<td>React – Leaking Server Functions – CVE:CVE-2025-55183</td>
+			<td>N/A</td>
+			<td>Block</td>
+			<td>Rule metadata description changed. Detection unchanged.</td>
+		</tr>
+		<tr>
+			<td>Cloudflare Free Ruleset</td>
+			<td>
+				<RuleID id="b3a52fd1264a45b0ad58b49efafde037" />
+			</td>
+			<td>N/A</td>
+			<td>React – Leaking Server Functions – CVE:CVE-2025-55183</td>
+			<td>N/A</td>
+			<td>Block</td>
+			<td>Rule metadata description changed. Detection unchanged.</td>
+		</tr>
+		<tr>
+			<td>Cloudflare Managed Ruleset</td>
+			<td>
+				<RuleID id="2694f1610c0b471393b21aef102ec699" />
+			</td>
+			<td>N/A</td>
+			<td>React – DoS – CVE-2025-55184</td>
+			<td>N/A</td>
+			<td>Disabled</td>
+			<td>Rule metadata description changed. Detection unchanged.</td>
+		</tr>
+	</tbody>
+</table>
